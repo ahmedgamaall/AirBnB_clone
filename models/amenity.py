@@ -2,7 +2,6 @@
 """amenity model"""
 from models.base_model import BaseModel
 
-
 class Amenity(BaseModel):
     """amenity class for place class"""
 
@@ -16,4 +15,3 @@ class Amenity(BaseModel):
         """
 
         super().__init__(*args, **kwargs)
-

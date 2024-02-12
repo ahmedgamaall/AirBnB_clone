@@ -2,7 +2,6 @@
 """state model"""
 from models.base_model import BaseModel
 
-
 class State(BaseModel):
     """state class for place class"""
 
@@ -15,4 +14,3 @@ class State(BaseModel):
         name : str for state name
         """
         super().__init__(*args, **kwargs)
-

@@ -2,7 +2,6 @@
 """Place model"""
 from models.base_model import BaseModel
 
-
 class Place(BaseModel):
     """Place class"""
 
@@ -35,4 +34,3 @@ class Place(BaseModel):
             amenity_ids : list IDs of amenities in the place
         """
         super().__init__(*args, **kwargs)
-

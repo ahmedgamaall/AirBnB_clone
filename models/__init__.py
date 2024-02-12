@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """Script for share file_storage instance"""
 
-from models.engine import file_storage
-
-storage = file_storage.FileStorage()
+from models.engine.file_storage import FileStorage
+storage = FileStorage()
 storage.reload()

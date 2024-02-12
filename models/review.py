@@ -2,7 +2,6 @@
 """review model"""
 from models.base_model import BaseModel
 
-
 class Review(BaseModel):
     """review class for place class"""
 
@@ -20,4 +19,3 @@ class Review(BaseModel):
         """
 
         super().__init__(*args, **kwargs)
-

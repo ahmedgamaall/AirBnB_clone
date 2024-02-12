@@ -1,38 +1,39 @@
 #!usr/bin/python3
-
 """ File storage model """
 import json
-from models.base_model import BaseModel
-from models.user import User
-from models.state import State
-from models.city import City
-from models.amenity import Amenity
-from models.place import Place
-from models.review import Review
-
 
 class FileStorage():
-
     """
     FileStorage class for file operations
     """
-
+    
     __file_path = "file.json"
     __objects = {}
-    __class_models = {
-        'BaseModel': BaseModel,
-        'User': User,
-        'State': State,
-        'City': City,
-        'Amenity': Amenity,
-        'Place': Place,
-        'Review': Review}
 
     def all(self):
         """
         Returns all objects
         """
         return self.__objects
+    
+    def model_classes(self):
+        """Returns classes"""
+        from models.base_model import BaseModel
+        from models.user import User
+        from models.state import State
+        from models.city import City
+        from models.amenity import Amenity
+        from models.place import Place
+        from models.review import Review
+
+        models = {"BaseModel": BaseModel,
+                   "User": User,
+                   "State": State,
+                   "City": City,
+                   "Amenity": Amenity,
+                   "Place": Place,
+                   "Review": Review}
+        return models
 
     def new(self, obj):
         """
@@ -60,11 +61,10 @@ class FileStorage():
 
             for key, value in serialize_objects.items():
                 contor = value["__class__"]
-                if value["__class__"] in self.__class_models.keys():
-                    self.__objects[key] = self.__class_models[value["__class__"]](
+                if value["__class__"] in self.model_classes.keys():
+                    self.__objects[key] = self.model_classes[value["__class__"]](
                         **value)
         except FileNotFoundError:
             pass
         except Exception as error:
             pass
-
