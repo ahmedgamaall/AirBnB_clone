@@ -4,7 +4,6 @@
 import uuid
 from datetime import datetime
 
-
 class BaseModel:
     """BaseModel class that all classes inherit from"""
     

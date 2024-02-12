@@ -1,4 +1,5 @@
-ty model"""
+#!/usr/bin/python3
+"""city model"""
 from models.base_model import BaseModel
 
 

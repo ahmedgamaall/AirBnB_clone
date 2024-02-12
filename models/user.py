@@ -1,8 +1,6 @@
 #!usr/bin/python3
-
 """user model"""
 from models.base_model import BaseModel
-
 
 class User(BaseModel):
     """user class for place class"""
@@ -22,4 +20,3 @@ class User(BaseModel):
         last_name : str for user name
         """
         super().__init__(*args, **kwargs)
-
