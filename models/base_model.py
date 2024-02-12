@@ -3,7 +3,6 @@
 
 import uuid
 from datetime import datetime
-import models
 
 
 class BaseModel:
@@ -37,7 +36,7 @@ class BaseModel:
 
         Returns : string
         """
-        return f"[{self.__class__.__name__}] ({self.id}) <{self.__dict__}>"
+        return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
 
     def save(self):
         """save
@@ -58,4 +57,3 @@ class BaseModel:
         class_dictionary["created_at"] = self.created_at.isoformat()
         
         return class_dictionary
-
