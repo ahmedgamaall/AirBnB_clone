@@ -5,8 +5,6 @@ test File Storage
 import unittest
 from models.engine.file_storage import FileStorage
 from models.base_model import BaseModel
-from models import storage
-from datetime import datetime
 import os
 
 class TestFileStorage(unittest.TestCase):
@@ -38,4 +36,3 @@ class TestFileStorage(unittest.TestCase):
         n_bs = BaseModel()
         n_bs.save()
         self.assertTrue(os.path.exists("file.json"))
-

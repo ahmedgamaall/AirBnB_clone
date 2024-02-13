@@ -67,7 +67,7 @@ class TestAmenityClass(unittest.TestCase):
             test save class method
         """
         bf_update = self.amnty.updated_at
-        self.amnty.name = "Gamal"
+        self.amnty.name = "Ahmed"
         self.amnty.save()
         af_update = self.amnty.updated_at
         self.assertNotEqual(bf_update, af_update)
@@ -78,6 +78,5 @@ class TestAmenityClass(unittest.TestCase):
         """
         s = self.amnty.__class__.__name__
 
-        exp_string = f"[{s}] ({self.amnty.id}) <{self.amnty.__dict__}>"
+        exp_string = f"[{s}] ({self.amnty.id}) {self.amnty.__dict__}"
         self.assertEqual(self.amnty.__str__(), exp_string)
-

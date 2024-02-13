@@ -61,7 +61,7 @@ class FileStorage():
 
             for key, value in serialize_objects.items():
                 contor = value["__class__"]
-                if value["__class__"] in self.model_classes.keys():
+                if contor in self.model_classes.keys():
                     self.__objects[key] = self.model_classes[value["__class__"]](
                         **value)
         except FileNotFoundError:

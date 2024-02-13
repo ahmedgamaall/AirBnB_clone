@@ -5,9 +5,8 @@ Unittest for State Class
 import unittest
 from models.state import State
 from models.base_model import BaseModel
-from models import storage
 from datetime import datetime
-
+from models import storage
 
 class TestStateClass(unittest.TestCase):
     """
@@ -73,7 +72,7 @@ class TestStateClass(unittest.TestCase):
             test save class method
         """
         bf_update = self.st.updated_at
-        self.st.name = "very nice"
+        self.st.name = "good"
         self.st.save()
         af_update = self.st.updated_at
         self.assertNotEqual(bf_update, af_update)
@@ -83,6 +82,5 @@ class TestStateClass(unittest.TestCase):
             test str class method
         """
         s = self.st.__class__.__name__
-        exp_string = f"[{s}] ({self.st.id}) <{self.st.__dict__}>"
+        exp_string = f"[{s}] ({self.st.id}) {self.st.__dict__}"
         self.assertEqual(self.st.__str__(), exp_string)
-

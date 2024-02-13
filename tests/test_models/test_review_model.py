@@ -86,7 +86,7 @@ class TestReviewClass(unittest.TestCase):
             test save class method
         """
         bf_update = self.rvw.updated_at
-        self.rvw.text = "very nice"
+        self.rvw.text = "It's nice"
         self.rvw.save()
         af_update = self.rvw.updated_at
         self.assertNotEqual(bf_update, af_update)
@@ -96,6 +96,5 @@ class TestReviewClass(unittest.TestCase):
             test str class method
         """
         s = self.rvw.__class__.__name__
-        exp_string = f"[{s}] ({self.rvw.id}) <{self.rvw.__dict__}>"
+        exp_string = f"[{s}] ({self.rvw.id}) {self.rvw.__dict__}"
         self.assertEqual(self.rvw.__str__(), exp_string)
-

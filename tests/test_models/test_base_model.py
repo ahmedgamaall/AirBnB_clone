@@ -37,8 +37,8 @@ class TestBaseModelClass(unittest.TestCase):
         self.assertIsInstance(n_bs.id, str)
         self.assertIsInstance(n_bs.created_at, datetime)
         self.assertIsInstance(n_bs.updated_at, datetime)
-        self.assertEqual(n_bs.name, "My First Model")
-        self.assertEqual(n_bs.my_number, 59)
+        self.assertEqual(n_bs.name, "Father for all classes")
+        self.assertEqual(n_bs.my_number, 95)
         self.assertNotEqual(n_bs, self.bsmodel)
         self.assertDictEqual(n_bs.__dict__, self.bsmodel.__dict__)
 
@@ -58,7 +58,7 @@ class TestBaseModelClass(unittest.TestCase):
             test save class method
         """
         bf_update = self.bsmodel.updated_at
-        self.bsmodel.my_number = 97
+        self.bsmodel.my_number = 95
         self.bsmodel.save()
         af_update = self.bsmodel.updated_at
         self.assertNotEqual(bf_update, af_update)
@@ -68,6 +68,5 @@ class TestBaseModelClass(unittest.TestCase):
             test str class method
         """
         s = self.bsmodel.__class__.__name__
-        exp_string = f"[{s}] ({self.bsmodel.id}) <{self.bsmodel.__dict__}>"
+        exp_string = f"[{s}] ({self.bsmodel.id}) {self.bsmodel.__dict__}"
         self.assertEqual(self.bsmodel.__str__(), exp_string)
-

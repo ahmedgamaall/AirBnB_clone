@@ -146,7 +146,7 @@ class TestPlaceClass(unittest.TestCase):
             test save class method
         """
         bf_update = self.plc.updated_at
-        self.plc.name = "Entire cottage in Marshall"
+        self.plc.name = "Entire villa in Purcellville"
         self.plc.save()
         af_update = self.plc.updated_at
         self.assertNotEqual(bf_update, af_update)
@@ -156,6 +156,5 @@ class TestPlaceClass(unittest.TestCase):
             test str class method
         """
         s = self.plc.__class__.__name__
-        exp_string = f"[{s}] ({self.plc.id}) <{self.plc.__dict__}>"
+        exp_string = f"[{s}] ({self.plc.id}) {self.plc.__dict__}"
         self.assertEqual(self.plc.__str__(), exp_string)
-

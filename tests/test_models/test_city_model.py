@@ -15,7 +15,7 @@ class TestCityClass(unittest.TestCase):
     """
     cy = City()
     cy.name = "Qena"
-    cy.id = "695-456-789"
+    cy.id = "695-654-789"
 
     def test_defaults(self):
         """test default value"""
@@ -35,7 +35,7 @@ class TestCityClass(unittest.TestCase):
         self.assertIsInstance(self.cy.created_at, datetime)
         self.assertIsInstance(self.cy.updated_at, datetime)
         self.assertEqual(self.cy.name, "Qena")
-        self.assertEqual(self.cy.id, "695-456-789")
+        self.assertEqual(self.cy.id, "695-654-789")
 
     def test_object_with_kwargs(self):
         """
@@ -75,7 +75,7 @@ class TestCityClass(unittest.TestCase):
             test save class method
         """
         bf_update = self.cy.updated_at
-        self.cy.name = "Cairo"
+        self.cy.name = "Qena"
         self.cy.save()
         af_update = self.cy.updated_at
         self.assertNotEqual(bf_update, af_update)
@@ -85,6 +85,5 @@ class TestCityClass(unittest.TestCase):
             test str class method
         """
         s = self.cy.__class__.__name__
-        exp_string = f"[{s}] ({self.cy.id}) <{self.cy.__dict__}>"
+        exp_string = f"[{s}] ({self.cy.id}) {self.cy.__dict__}"
         self.assertEqual(self.cy.__str__(), exp_string)
-

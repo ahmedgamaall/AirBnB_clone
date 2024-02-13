@@ -94,7 +94,7 @@ class TestUserClass(unittest.TestCase):
             test save class method
         """
         bf_update = self.usr.updated_at
-        self.usr.email = "nil.ahmed.gamal@gmail.com"
+        self.usr.email = "ahmed.gamal@gmail.com"
         self.usr.save()
         af_update = self.usr.updated_at
         self.assertNotEqual(bf_update, af_update)
@@ -104,6 +104,6 @@ class TestUserClass(unittest.TestCase):
             test str class method
         """
         s = self.usr.__class__.__name__
-        exp_string = f"[{s}] ({self.usr.id}) <{self.usr.__dict__}>"
+        exp_string = f"[{s}] ({self.usr.id}) {self.usr.__dict__}"
         self.assertEqual(self.usr.__str__(), exp_string)
 
