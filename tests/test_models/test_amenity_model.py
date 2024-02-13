@@ -80,3 +80,6 @@ class TestAmenityClass(unittest.TestCase):
 
         exp_string = f"[{s}] ({self.amnty.id}) {self.amnty.__dict__}"
         self.assertEqual(self.amnty.__str__(), exp_string)
+
+if __name__ == '__main__':
+    unittest.main()
