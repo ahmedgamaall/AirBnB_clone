@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Console module."""
+"""Console module"""
 
 import cmd
 from models.base_model import BaseModel
@@ -14,17 +14,19 @@ from models import storage
 
 class HBNBCommand(cmd.Cmd):
     """
-    
+        The HBNB Class console
     """
 
     prompt = '(hbnb) '
-    cls_dicteinary = {"BaseModel": BaseModel,
-                    "User": User,
-                    "State": State,
-                    "City": City,
-                    "Amenity": Amenity,
-                    "Place": Place,
-                    "Review": Review}
+    cls_dicteinary = {
+        "BaseModel": BaseModel,
+        "User": User,
+        "State": State,
+        "City": City,
+        "Amenity": Amenity,
+        "Place": Place,
+        "Review": Review
+        }
 
     def do_EOF(self, cmd_ln):
         """EOF command to exit the program."""
@@ -33,10 +35,10 @@ class HBNBCommand(cmd.Cmd):
     def do_quit(self, cmd_ln):
         """Quit command to exit the program."""
         return True
-    
+
     def help_quit(self, cmd_ln):
         """
-        
+            The help quit method
         """
         print("Quit command to exit the program.")
 
@@ -46,7 +48,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_create(self, cmd_ln):
         """
-        
+            The create method
         """
         if cmd_ln == "":
             print("** class name missing **")
@@ -62,7 +64,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_show(self, cmd_ln):
         """
-        
+            The show method
         """
         cmd_vtr = cmd_ln.split()
         if cmd_vtr == []:
@@ -84,7 +86,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_destroy(self, cmd_ln):
         """
-        
+            The destory method
         """
         cmd_vtr = cmd_ln.split()
         if cmd_vtr == []:
@@ -108,7 +110,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_all(self, cmd_ln):
         """
-        
+            The all method
         """
         cmd_vtr = cmd_ln.split()
 
@@ -131,7 +133,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_update(self, cmd_ln):
         """
-        
+            The update method
         """
         cmd_vtr = cmd_ln.split()
         vctr_ln = len(cmd_vtr)
@@ -166,4 +168,3 @@ class HBNBCommand(cmd.Cmd):
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
-

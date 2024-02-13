@@ -5,9 +5,11 @@ import uuid
 from datetime import datetime
 from models import storage
 
+
 class BaseModel:
     """BaseModel class that all classes inherit from"""
     my_number = 90
+
     def __init__(self, *args, **kwargs):
         """constructor for BaseModel class
 
@@ -56,5 +58,5 @@ class BaseModel:
         class_dictionary["__class__"] = self.__class__.__name__
         class_dictionary["updated_at"] = self.updated_at.isoformat()
         class_dictionary["created_at"] = self.created_at.isoformat()
-        
+
         return class_dictionary

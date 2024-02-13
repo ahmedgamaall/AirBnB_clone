@@ -2,20 +2,21 @@
 """ File storage model """
 import json
 
+
 class FileStorage():
     """
     FileStorage class for file operations
     """
-    
+
     __file_path = "file.json"
-    __objects = {}
+    __objs = {}
 
     def all(self):
         """
         Returns all objects
         """
-        return self.__objects
-    
+        return self.__objs
+
     def model_classes(self):
         """Returns classes"""
         from models.base_model import BaseModel
@@ -26,27 +27,29 @@ class FileStorage():
         from models.place import Place
         from models.review import Review
 
-        models = {"BaseModel": BaseModel,
-                   "User": User,
-                   "State": State,
-                   "City": City,
-                   "Amenity": Amenity,
-                   "Place": Place,
-                   "Review": Review}
+        models = {
+            "BaseModel": BaseModel,
+            "User": User,
+            "State": State,
+            "City": City,
+            "Amenity": Amenity,
+            "Place": Place,
+            "Review": Review
+                   }
         return models
 
     def new(self, obj):
         """
         Add obj to objects
         """
-        self.__objects[f"{obj.__class__.__name__}.{obj.id}"] = obj
+        self.__objs[f"{obj.__class__.__name__}.{obj.id}"] = obj
 
     def save(self):
         """"
-        Serialize __objects to json objects for save it
+        Serialize __objs to json objects for save it
         """
         serialize_objects = {}
-        for key, value in self.__objects.items():
+        for key, value in self.__objs.items():
             serialize_objects[key] = value.to_dict()
         with open(self.__file_path, "w", encoding='utf-8') as json_file:
             json.dump(serialize_objects, json_file, indent=4)
@@ -62,7 +65,7 @@ class FileStorage():
             for key, value in serialize_objects.items():
                 contor = value["__class__"]
                 if contor in self.model_classes.keys():
-                    self.__objects[key] = self.model_classes[value["__class__"]](
+                    self.__objs[key] = self.model_classes[value["__class__"]](
                         **value)
         except FileNotFoundError:
             pass

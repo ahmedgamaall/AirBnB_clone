@@ -2,6 +2,7 @@
 """Place model"""
 from models.base_model import BaseModel
 
+
 class Place(BaseModel):
     """Place class"""
 
@@ -19,7 +20,7 @@ class Place(BaseModel):
 
     def __init__(self, *args, **kwargs):
         """constructor for Place class
-        
+
         arguments:
             city_id : str for city id
             user_id : str for user id
